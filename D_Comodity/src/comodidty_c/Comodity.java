@@ -50,22 +50,24 @@ public class Comodity {
 	}
 
 	public void addComodities(List<Comodity> com) {
-		for (int i = 0; i <= 89; i++) {
+		for (int i = 0; i <= 98; i++) {
 			int weight = 100 + (int) (Math.random() * (999 - 100));
 			int price = 1000 + (int) (Math.random() * (9999 - 1000));
-			String name = "item"+ UUID.randomUUID().toString()
-					.replaceAll("[^a-zA-Z]", "").toUpperCase().substring(0, 4);
+			String name = "item"
+					+ UUID.randomUUID().toString().replaceAll("[^a-zA-Z]", "")
+							.toUpperCase().substring(0, 3);
 			Comodity comodity = new Comodity(name, weight, price);
 			com.add(comodity);
 		}
 	}
 
-	public void showAllComodity(List<Comodity> com){
-	    for (Comodity comm : com) {
-		System.out.println(comm);
-	    }
+	public void showAllComodity(List<Comodity> com) {
+		for (int i = 0; i <= com.size(); i++) {
+			System.out.printf("%1$s     %2$s    %3$s%n", com.get(i),
+					com.get(i + 33), i + " " + com.get(i + 66));
+		}
 	}
-	
+
 	public void sortAscending(List<Comodity> com) {
 		Collections.sort(com, new SortByPriceAscending());
 		System.out.println("sorted price by ascending");
@@ -74,16 +76,17 @@ public class Comodity {
 	public void sortDescendingly(List<Comodity> com) {
 		Collections.sort(com, new SortByPriceDescendingly());
 		System.out.println("sorted price by descendingly");
-		
+
 	}
 
 	public void showPage(List<Comodity> com, int page) {
+		double space = 40.22;
 		for (int i = 0; i < 3; i++) {
-			System.out.printf("     %1$s   %2$s   %3$s%n", 
-		    com.get(i),com.get(i + 3), com.get(i + 6));
+			System.out.printf("     %1$s   %2$s   %3$s%n", com.get(i),
+					com.get(i + 3), com.get(i + 6));
 		}
-		System.out.print("                                               ");
-		for (int i = 1; i <=10; i++) {
+		System.out.printf("%" + space + "s", "");
+		for (int i = 1; i <= 12; i++) {
 			if (i == page) {
 			} else {
 				System.out.print(" " + i + " ");
@@ -92,6 +95,6 @@ public class Comodity {
 				System.out.print("{" + page + "}");
 			}
 		}
-	        System.out.println();
+		System.out.println();
 	}
 }
