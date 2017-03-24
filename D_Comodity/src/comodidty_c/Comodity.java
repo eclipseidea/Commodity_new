@@ -61,15 +61,13 @@ public class Comodity {
 	}
 
 	public void showAllComodity(List<Comodity> com) {
-	try{	
-		for (int i = 0; i < com.size(); i++) {
+		
+		for (int i = 0; i < 33; i++) {
 			System.out.printf("     %1$s     %2$s     %3$s%n", com.get(i),
 					com.get(i + 33), com.get(i + 66));
 		}
-		}catch(IndexOutOfBoundsException IndexOutOfBoundsException){
-	}		
-	}		
-
+	}
+	
 	public void sortAscending(List<Comodity> com) {
 		Collections.sort(com, new SortByPriceAscending());
 		System.out.println("sorted price by ascending");
