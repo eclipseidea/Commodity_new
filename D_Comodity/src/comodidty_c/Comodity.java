@@ -13,7 +13,6 @@ public class Comodity {
 	}
 
 	public Comodity(String name, int weight, int price) {
-		super();
 		this.name = name;
 		this.weight = weight;
 		this.price = price;
@@ -62,11 +61,14 @@ public class Comodity {
 	}
 
 	public void showAllComodity(List<Comodity> com) {
-		for (int i = 0; i <= com.size(); i++) {
-			System.out.printf("%1$s     %2$s    %3$s%n", com.get(i),
-					com.get(i + 33), i + " " + com.get(i + 66));
+	try{	
+		for (int i = 0; i < com.size(); i++) {
+			System.out.printf("     %1$s     %2$s     %3$s%n", com.get(i),
+					com.get(i + 33), com.get(i + 66));
 		}
-	}
+		}catch(IndexOutOfBoundsException IndexOutOfBoundsException){
+	}		
+	}		
 
 	public void sortAscending(List<Comodity> com) {
 		Collections.sort(com, new SortByPriceAscending());
@@ -80,9 +82,9 @@ public class Comodity {
 	}
 
 	public void showPage(List<Comodity> com, int page) {
-		double space = 40.22;
-		for (int i = 0; i < 3; i++) {
-			System.out.printf("     %1$s   %2$s   %3$s%n", com.get(i),
+		double space = 48.95;
+		for (int i = 0; i<3; i++) {
+			System.out.printf("     %1$s     %2$s     %3$s%n", com.get(i),
 					com.get(i + 3), com.get(i + 6));
 		}
 		System.out.printf("%" + space + "s", "");
